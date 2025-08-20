@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, Platform, ActivityIndicator } from 'react-native';
 import { Stack } from 'expo-router';
+import * as Linking from 'expo-linking';
 import GradientButton from '@/components/GradientButton';
 import { colors } from '@/constants/colors';
 import { supabase } from '@/utils/supabase';
@@ -22,7 +23,7 @@ export default function LoginScreen() {
       setStatus('');
       const redirectTo = Platform.OS === 'web'
         ? `${window.location.origin}/auth/callback`
-        : 'myapp://auth/callback';
+        : Linking.createURL('auth/callback');
       console.log('[auth] sending magic link', { redirectTo });
       const { error } = await supabase.auth.signInWithOtp({
         email,

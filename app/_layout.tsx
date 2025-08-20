@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { UserProvider } from "@/hooks/user-store";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -47,19 +47,31 @@ export default function RootLayout() {
     IBMPlexSans_600SemiBold,
     IBMPlexSans_700Bold,
   });
+  const [splashHidden, setSplashHidden] = useState<boolean>(false);
 
   useEffect(() => {
-    if (fontsLoaded) {
+    let timeout: NodeJS.Timeout | null = setTimeout(() => {
+      if (!splashHidden) {
+        console.log('[layout] fonts taking long, hiding splash as fallback');
+        SplashScreen.hideAsync();
+        setSplashHidden(true);
+      }
+    }, 4000);
+
+    return () => { if (timeout) clearTimeout(timeout); };
+  }, [splashHidden]);
+
+  useEffect(() => {
+    if (fontsLoaded && !splashHidden) {
       (Text as any).defaultProps = (Text as any).defaultProps || {};
       (Text as any).defaultProps.style = [
         (Text as any).defaultProps.style,
         { fontFamily: "IBMPlexSans_400Regular", color: colors.text.primary },
       ];
       SplashScreen.hideAsync();
+      setSplashHidden(true);
     }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) return null;
+  }, [fontsLoaded, splashHidden]);
 
   return (
     <QueryClientProvider client={queryClient}>

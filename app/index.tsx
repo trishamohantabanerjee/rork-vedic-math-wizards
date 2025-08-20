@@ -63,15 +63,17 @@ export default function IndexScreen() {
       <View style={styles.content}>
         <Image
           source={{ uri: HERO_URI }}
-          style={{ width: heroSize, height: heroSize, aspectRatio: 1, marginBottom: 18 }}
+          style={{ width: heroSize, height: heroSize, aspectRatio: 1 }}
           resizeMode="contain"
           accessibilityLabel="Welcome illustration"
           testID="homeHero"
         />
-        <Text style={styles.headline} accessibilityRole="header" testID="welcomeMessage">
-          Welcome to Anksutra
-        </Text>
-        <Text style={styles.subhead}>Sharpen skills with quick, fun practice.</Text>
+        <View style={{ alignItems: 'center', gap: 6 }}>
+          <Text style={styles.headline} accessibilityRole="header" testID="welcomeMessage">
+            Welcome to Anksutra
+          </Text>
+          <Text style={styles.subhead}>Sharpen skills with quick, fun practice.</Text>
+        </View>
       </View>
     </View>
   );
@@ -88,9 +90,11 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingBottom: 24,
+    justifyContent: 'space-evenly',
+    paddingVertical: 24,
     gap: 2,
+    width: '100%',
+    maxWidth: 720,
   },
   headline: {
     color: colors.text.primary,
