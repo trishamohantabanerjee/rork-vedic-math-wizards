@@ -23,7 +23,7 @@ export default function PrivacyPolicyScreen() {
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Introduction</Text>
               <Text style={styles.paragraph}>
-                Welcome to Vedic Math Wizards! We are committed to protecting the privacy and safety of our young users and their families. This Privacy Policy explains how we collect, use, and safeguard information when you use our educational app designed for children aged 6-12 years.
+                Welcome to Anksutra! We are committed to protecting the privacy and safety of our young users and their families. This Privacy Policy explains how we collect, use, and safeguard information when you use our educational app designed for children aged 6-12 years.
               </Text>
             </View>
 
@@ -144,8 +144,8 @@ export default function PrivacyPolicyScreen() {
               <Text style={styles.sectionTitle}>Contact Us</Text>
               <Text style={styles.paragraph}>
                 If you have questions about this Privacy Policy or your child's data, please contact us at:{'\n\n'}
-                Email: privacy@vedicmathwizards.com{'\n'}
-                Phone: +1-800-VEDIC-MATH{'\n'}
+                Email: privacy@anksutra.app{'\n'}
+                Phone: +91-800-ANKSUTRA{'\n'}
                 Address: 123 Education Lane, Learning City, LC 12345
               </Text>
             </View>

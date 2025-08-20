@@ -69,7 +69,7 @@ export default function IndexScreen() {
           testID="homeHero"
         />
         <Text style={styles.headline} accessibilityRole="header" testID="welcomeMessage">
-          Welcome to Vedic Math Wizards
+          Welcome to Anksutra
         </Text>
         <Text style={styles.subhead}>Sharpen skills with quick, fun practice.</Text>
       </View>

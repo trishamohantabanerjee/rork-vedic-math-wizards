@@ -52,7 +52,7 @@ export default function RoleSelectionScreen() {
           <View style={styles.header}>
             <WizardMascot size={120} animated />
             <Text style={styles.title}>Welcome to</Text>
-            <Text style={styles.appName}>Vedic Math Wizards!</Text>
+            <Text style={styles.appName}>Anksutra!</Text>
             <Text style={styles.subtitle}>Who are you?</Text>
           </View>
 
